@@ -159,10 +159,11 @@ body {
     height: 200px; /* Adjust based on logo size */
     border-radius: 50%;
     background-color: white; /* Circular white background */
+    opacity: 0.5;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem; /* Space between logo and heading */
+    margin-bottom: 1rem; 
     margin-left: auto;
     margin-right: auto;
   }
@@ -754,7 +755,6 @@ body {
     color: #fff;
     text-decoration: none;
     padding: 1rem 2.5rem;
-    border-radius: 4px;
     transition: background-color 0.3s ease;
   }
   
@@ -771,6 +771,389 @@ body {
     
     .contact-card-icon {
       margin-bottom: 1rem;
+    }
+  }
+
+  /* Image Section */
+.image-section {
+    position: relative;
+    height: 130vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #eeebe6a5 50%, #FFFFFF 50%);
+    overflow: hidden;
+    padding: 4rem 0;
+  }
+  
+  /* Main Image */
+  .image-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  .main-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .main-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* Overlay Card */
+  .overlay-card {
+    position: absolute;
+    bottom: -10vh; /* Overlapping the image */
+    left: -8vw; /* Slightly outside the image */
+    background: #FFFFFF;
+    padding: 1.5rem 2rem;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
+    max-width: 350px;
+    z-index: 10;
+  }
+  .overlay-card p {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .overlay-card .btn {
+    background-color: #00473E;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .overlay-card .btn:hover {
+    background-color: #00332C;
+  }
+  
+
+  .overlay-card-right {
+    position: absolute;
+    bottom: -20vh; /* Overlapping the image */
+    right: -8vw; /* Slightly outside the image */
+    background: #00473E;
+    padding: 1.5rem 2rem;
+    max-width: 450px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+/* Animation when card is in view */
+.overlay-card-right.animate-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Animation when card leaves view */
+.overlay-card-right.animate-out {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+/* Text Styling */
+.overlay-card-right h3 {
+    margin-top: 20px;
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.overlay-card-right p {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .image-container {
+      width: 90%;
+    }
+  
+    .overlay-card {
+      bottom: -10px;
+      left: -10px;
+      max-width: 250px;
+      padding: 1rem 1.5rem;
+    }
+
+    .overlay-card-right {
+        bottom: -10px;
+        right: -10px;
+        max-width: 250px;
+        padding: 1rem 1.5rem;
+    }
+
+  }
+
+
+/* Reviews Section */
+.reviews-section {
+    margin-top: 10vh;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Reviews Container */
+  .reviews-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  /* Individual Review Card */
+  .review-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 320px;
+    height: 400px; /* Fixed height for consistent alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push content and reviewer info apart */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Heading and Review Text */
+  .review-card h3 {
+    font-size: 1.2rem;
+    color: #00473E;
+    margin-bottom: 1rem;
+  }
+  
+  .review-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Takes up extra space to push content below */
+  }
+  
+  /* Reviewer Information */
+  .reviewer-info {
+    margin-top: auto; /* Ensures it stays at the bottom */
+    text-align: center;
+  }
+  
+  .reviewer-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.8rem;
+    border: 3px solid #00473E;
+  }
+  
+  .reviewer-info h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0.2rem;
+  }
+  
+  .reviewer-info span {
+    font-size: 0.9rem;
+    color: #777;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  /* Social Links */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  
+  .social-links a {
+    color: #b1aeae;
+    font-size: 1.7rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #00332C;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .reviews-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .review-card {
+      max-width: 80%;
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .review-card {
+      max-width: 100%;
+    }
+  }
+  
+  /* Footer Section */
+.footer-section {
+    background: #000;
+    color: #fff;
+    padding: 3rem 2rem 1rem;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 2rem;
+  }
+  
+  .footer-content {
+    max-width: 300px;
+  }
+  
+  .footer-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .footer-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #ccc;
+    line-height: 1.4;
+  }
+  
+  .footer-social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .footer-social-links a {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-social-links a:hover {
+    color: #1dbf73;
+  }
+  
+  .footer-links h4,
+  .footer-contact h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links ul li a:hover {
+    color: #1dbf73;
+  }
+  
+  .footer-contact p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+    color: #ccc;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+
+    /* Logo Container */
+    .logo-container-footer {
+        width: 100px; /* Adjust based on logo size */
+        height: 100px; /* Adjust based on logo size */
+        border-radius: 50%;
+        background-color: white; /* Circular white background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem; /* Space between logo and heading */
+        /* margin-left: auto;
+        margin-right: auto; */
+      }
+
+      .logo-center-footer {
+        width: 100px; /* Adjust the size of the logo */
+        height: 100px; /* Adjust the size of the logo */
+        object-fit: contain;
+      }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-content,
+    .footer-links,
+    .footer-contact {
+      max-width: 100%;
     }
   }
   

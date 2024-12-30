@@ -83,3 +83,27 @@ document.addEventListener('DOMContentLoaded', () => {
  
   
 
+  // Scroll Animation for Right Card
+document.addEventListener('DOMContentLoaded', () => {
+    const overlayCardRight = document.querySelector('.overlay-card-right');
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    overlayCardRight.classList.add('animate-in');
+                    overlayCardRight.classList.remove('animate-out');
+                } else {
+                    overlayCardRight.classList.add('animate-out');
+                    overlayCardRight.classList.remove('animate-in');
+                }
+            });
+        },
+        {
+            threshold: 0.5, // Trigger when 50% of the card is visible
+        }
+    );
+
+    observer.observe(overlayCardRight);
+});
+
+
