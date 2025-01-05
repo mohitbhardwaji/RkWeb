@@ -59,6 +59,7 @@ body {
   transition: left 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
+  padding-top: 1rem;
 }
 
 .sidebar.active {
@@ -85,12 +86,13 @@ body {
 
 .sidebar-links {
   list-style: none;
-  padding: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar-links li {
-  margin: 1rem 0;
-  padding-bottom: 10px;
+  padding: 1rem 0;
+  position: relative;
   border-bottom: 1px solid #ddd;
 }
 
@@ -99,11 +101,77 @@ body {
   color: #333;
   font-size: 1.2rem;
   display: block;
+  padding: 0.8rem 1.5rem;
   transition: color 0.3s;
 }
 
 .sidebar-links li a:hover {
   color: #00473e;
+}
+
+
+/* Add Font Awesome down arrow to the dropdown link */
+.drop {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  display: block;
+  padding: 0.8rem 1.5rem;
+  transition: color 0.3s;
+  position: relative; /* To position the arrow */
+}
+
+/* Font Awesome down arrow */
+.drop::after {
+  content: '\f107'; /* Font Awesome down arrow icon */
+  font-family: 'Font Awesome 5 Free'; /* Ensure Font Awesome is applied */
+  font-weight: 900; /* Solid icon */
+  margin-left: 8px;
+  transition: transform 0.3s;
+}
+
+
+
+/* Dropdown Container */
+.sidebar-links li > .dropdown {
+  display: none;
+  list-style: none;
+  margin-top: 5px;
+  padding: 0;
+  background-color: #fff;
+  position: absolute;
+  top: 100%; /* Position the dropdown below the list item */
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  max-height: 400px; /* Limit the height of the dropdown */
+  overflow-y: auto; /* Scroll within the dropdown if content exceeds max height */
+}
+
+.sidebar-links li.open > .dropdown {
+  display: block; /* Show the dropdown when the parent list item is open */
+}
+
+.dropdown li {
+  padding: 0rem 0rem;
+}
+
+.dropdown li a {
+  color: #333;
+  font-size: 0.7rem;
+}
+
+.dropdown li a:hover {
+  background-color: #f0f0f0;
+  color: #00473e;
+}
+
+/* Make the dropdown push other elements in the sidebar */
+.sidebar-links li.open {
+  padding-bottom: 10px; /* Add some space below the "Services" link when dropdown is open */
 }
 
 /* Overlay */
@@ -459,82 +527,111 @@ body {
 
 
 
-  /* Services Section */
+ /* Services Section */
 .services-section {
-    background-color: #eeebe6a5;
-    position: relative;
-    margin-top: -30vh; /* Overlapping the Who We Are section by 1/4th */
-    padding: 6rem 2rem;
-    width: 100vw; /* Full screen width */
-    overflow: hidden;
-    z-index: 0;
-  }
-  
-  /* Services Grid Layout */
+  background-color: #eeebe6a5;
+  position: relative;
+  margin-top: -30vh; /* Overlapping the Who We Are section */
+  padding: 6rem 2rem;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Services Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 4rem;
+}
+
+/* Individual Service Card */
+.service-card {
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* Service Card Image Wrapper */
+.service-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay Style */
+.service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Slightly dark background */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease;
+  padding: 1rem;
+}
+
+/* Overlay Text Styling */
+.service-overlay h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-overlay p {
+  font-size: 0.9rem;
+}
+
+/* Hover Effect */
+.service-image:hover .service-overlay {
+  opacity: 1;
+}
+
+.service-image:hover img {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
   .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    grid-gap: 2rem;
-    max-width: 1200px;
-    margin: auto;
-    padding-top: 4rem;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
   }
-  
-  /* Individual Service Card */
-  .service-card {
-    background: #fff;
-    /* border-radius: 8px; */
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Ensure height fills the available space */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Align content properly inside the card */
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* 1 column */
   }
-  
-  /* Image Style */
-  .service-card img {
-    width: 100%;
-    height: 200px; /* Adjust the image height as needed */
-    object-fit: cover;
-    display: block; /* Removes bottom space */
+
+  .service-overlay h3 {
+    font-size: 1rem;
   }
-  
-  /* Card Text (Heading & Paragraph) */
-  .service-card h3 {
-    font-size: 1.2rem;
-    margin: 1rem 0 0.5rem;
-    color: #333;
+
+  .service-overlay p {
+    font-size: 0.8rem;
   }
-  
-  .service-card p {
-    font-size: 0.9rem;
-    color: #666;
-    padding: 0 1rem 1.5rem;
-  }
-  
-  /* Hover Effect */
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 992px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .services-grid {
-      grid-template-columns: 1fr; /* 1 column */
-    }
-  }
-  
-  
+}
+
 
   /* Image-Text Section */
 .image-text-section {
@@ -774,6 +871,99 @@ body {
     }
   }
 
+
+  /* Modal Container */
+.ad-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Modal Content */
+.ad-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    text-align: center;
+    animation: modalFadeIn 0.5s ease-in-out;
+}
+
+/* Modal Close Button */
+.ad-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ad-modal-close:hover,
+.ad-modal-close:focus {
+    color: #000;
+}
+
+/* Modal Heading */
+.ad-modal-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #00473E;
+}
+
+/* Modal Text */
+.ad-modal-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Modal List */
+.ad-modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.ad-modal-content li {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.ad-modal-content a {
+    color: #00473E;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Animation for Modal */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .ad-modal-content {
+        width: 90%;
+    }
+}
+
+
   /* Image Section */
 .image-section {
     position: relative;
@@ -878,7 +1068,7 @@ body {
 
 .overlay-card-right p {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 12px;
     color: #fff;
     margin-bottom: 1rem;
     text-align: left;
@@ -1157,3 +1347,77 @@ body {
     }
   }
   
+
+
+  /* Clients Section */
+.clients-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #f9f9f9;
+    overflow: hidden;
+}
+
+.clients-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Slider Container */
+.clients-slider {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Slider Track for Infinite Scroll */
+.slider-track {
+    display: inline-flex;
+    animation: slide 20s linear infinite;
+}
+
+/* Individual Slides */
+.slide {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.slide img:hover {
+    filter: grayscale(0%);
+}
+
+/* Slider Animation */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .clients-slider {
+        width: 90%;
+    }
+    .slide {
+        min-width: 150px;
+        max-width: 150px;
+    }
+}

@@ -1,0 +1,1105 @@
+/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e8f0f8; /* Light Bluish Grey */
+    /* overflow-x: hidden; Prevent horizontal scrolling */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: space-between; /* Spaces out logo and menu toggle */
+    align-items: center;
+    padding: 0 1.5rem;
+    z-index: 1001;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .logo img {
+      height: 90px; /* Adjust height as needed */
+      width: auto; /* Maintain aspect ratio */
+      display: block;
+    }
+    
+
+/* Hamburger Menu (Menu Toggle) */
+.menu-toggle {
+    font-size: 1.8rem;
+    color: #333;
+    cursor: pointer;
+    z-index: 1002;
+    margin-right: 3vw;
+}
+
+.menu-toggle i {
+    display: block;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Hidden by default */
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1002;
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+.sidebar.active {
+    left: 0; /* Slide-in from the left */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.sidebar-header i {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-links li {
+    padding: 1rem 0;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.8rem 1.5rem;
+    transition: color 0.3s;
+}
+
+.sidebar-links li a:hover {
+    color: #00473e;
+}
+
+
+/* Add Font Awesome down arrow to the dropdown link */
+.drop {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.8rem 1.5rem;
+    transition: color 0.3s;
+    position: relative; /* To position the arrow */
+}
+
+/* Font Awesome down arrow */
+.drop::after {
+    content: '\f107'; /* Font Awesome down arrow icon */
+    font-family: 'Font Awesome 5 Free'; /* Ensure Font Awesome is applied */
+    font-weight: 900; /* Solid icon */
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+
+
+/* Dropdown Container */
+.sidebar-links li > .dropdown {
+    display: none;
+    list-style: none;
+    margin-top: 10px;
+    padding: 0;
+    background-color: #fff;
+    position: absolute;
+    top: 100%; /* Position the dropdown below the list item */
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    max-height: 400px; /* Limit the height of the dropdown */
+    overflow-y: auto; /* Scroll within the dropdown if content exceeds max height */
+}
+
+.sidebar-links li.open > .dropdown {
+    display: block; /* Show the dropdown when the parent list item is open */
+}
+
+.dropdown li {
+    padding: 0rem 0rem;
+}
+
+.dropdown li a {
+    color: #333;
+    font-size: 0.7rem;
+}
+
+.dropdown li a:hover {
+    background-color: #f0f0f0;
+    color: #00473e;
+}
+
+/* Make the dropdown push other elements in the sidebar */
+.sidebar-links li.open {
+    padding-bottom: 10px; /* Add some space below the "Services" link when dropdown is open */
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Responsive Behavior */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Hamburger is now visible on smaller screens */
+        margin-left: auto; /* Pushes the hamburger to the right edge */
+    }
+
+    .navbar {
+        padding: 0 1rem; /* Reduce padding for smaller screens */
+    }
+}
+
+    
+/* Main Container */
+.main-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* First Card (Light Pastel Green) */
+.card-green {
+    background-color: #8FC0C3; /* Light Pastel Green */
+    width: 80%;
+    height: 80vh;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    border-radius: 16px;
+    z-index: 1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Second Card (Blue Pastel, Overlapping) */
+.card-blue {
+    background-color: #2C4776; /* Blue Pastel */
+    width: 60%;
+    height: 90%;
+    position: absolute;
+    right: 10%;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Card Content */
+.card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    gap: 1rem;
+}
+
+/* Card Image */
+.card-image {
+    flex: 1;
+    position: absolute;
+    left: -25%;
+    top:12vh;
+}
+
+.card-image img {
+    width: 100%;
+    max-width: 400px;
+    height: 80vh;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Text */
+.card-text {
+    flex: 1;
+    padding: 2rem;
+    color: #ffffff;
+    margin-left: 20vw;
+}
+
+.card-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card-text p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Button */
+.btn {
+    border: 1px solid #fff;
+    display: inline-block;
+    background-color: transparent;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 15px;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #2C4776;
+}
+
+/* Points Section */
+.points-section {
+    width: 100%;
+    padding: 3rem 1.5rem;
+    background-color: #f9fafc;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.points-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin-inline: 20vh;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #2C4776;
+    justify-content: center;
+    text-align: center;
+    margin: 10vh;
+}
+
+/* Columns */
+.points-column {
+    flex: 1;
+    min-width: 300px;
+    box-sizing: border-box;
+    margin-inline: 5vh;
+    opacity: 0; /* Initially invisible */
+    transform: translateX(100px); /* Start off-screen */
+    transition: transform 1s ease-out, opacity 1s ease-out; /* Animation on scroll */
+}
+
+/* When columns come into view, they will slide in */
+.points-column.in-view {
+    opacity: 1;
+    transform: translateX(0); /* Slide to normal position */
+}
+
+/* Individual Point */
+.point {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+/* Icon */
+.point-icon {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    background-color: #8FC0C3;
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Text */
+.point-text {
+    font-size: 25px;
+    color: #2C4776;
+    font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .card-blue {
+        width: 70%;
+        right: 5%;
+    }
+
+    .card-green {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        height: auto;
+    }
+
+    .card-blue,
+    .card-green {
+        position: static;
+        width: 90%;
+        height: auto;
+        margin-bottom: 2rem;
+        margin-top: 10vh;
+    }
+    .card-text{
+        margin-left: 0;
+    }
+    .card-content {
+        flex-direction: column;
+        text-align: center;
+        
+    }
+
+    .card-image img {
+        max-width: 300px;
+        display: none;
+    }
+
+    .points-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-inline: 10vh;
+    }
+
+    .points-column{
+        margin-inline: 0vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .card-text p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .point-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .point-text {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* New Section */
+.new-section {
+    width: 100%;
+    padding: 3rem 1.5rem;
+    background-color: #f9fafc;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Container to hold both columns */
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 2rem;
+}
+
+/* Left Column */
+.left-column {
+    flex: 1;
+    background-color: transparent;
+    padding: 2rem;
+    text-align: left;
+    margin-top: 10vh;
+    margin-inline-start: 2vw;
+    opacity: 0; /* Start with opacity 0 */
+}
+
+
+
+.left-column .text-content h3 {
+    color: #2C4776; /* Blue color */
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .left-column .text-content p {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .left-column .circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #8FC0C3; /* Green color */
+    border: 3px solid #fff;
+    margin: 0 ;
+  }
+
+/* Left Column Slide-in Animation */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Right Column (Card) */
+.right-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center content vertically and horizontally */
+    opacity: 0; /* Start with opacity 0 */
+}
+
+/* Right Column Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.green-card {
+    background-color: #8FC0C3; /* Green background */
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent; /* Transparent border */
+    display: flex;
+    flex-direction: column; /* Arrange items in column */
+    justify-content: space-between; /* Space out the elements */
+    height: 100%; /* Ensure the card takes up the full height */
+}
+
+/* When in view, apply animations */
+.left-column.visible {
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.right-column.visible {
+    animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+.green-card h4 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.green-card p {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    margin-top: 2rem;
+    line-height: 1.8;
+}
+
+.green-card .btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 200;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Center the button */
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+.green-card .btn:hover {
+    background-color: #f0f0f0;
+    color: #2C4776;
+}
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack columns vertically on small screens */
+    }
+
+    .left-column {
+        margin-top: 0; /* Remove margin-top for better alignment on smaller screens */
+        opacity: 1; /* Ensure the left column is visible right away */
+        margin-inline-start: 0vh;
+    }
+
+    .right-column {
+        margin-top: 2rem; /* Add some space between left and right column on small screens */
+    }
+
+    .green-card {
+        max-width: 100%; /* Make the card width 100% on small screens */
+        height: auto; /* Allow card height to adjust based on content */
+    }
+
+    .left-column .text-content h3  {
+        font-size: 2rem; /* Adjust font size for small screens */
+    }
+
+    .left-column p {
+        font-size: 0.9rem; /* Adjust text size for better readability */
+    }
+
+    .green-card h4 {
+        font-size: 1.25rem; /* Adjust header size for small screens */
+    }
+
+    .green-card p {
+        font-size: 1.25rem; /* Adjust paragraph size for small screens */
+    }
+
+    .green-card .btn {
+        font-size: 1rem; /* Adjust button font size for small screens */
+    }
+}
+
+
+
+
+
+/* Stats Section */
+.stats-section {
+    width: 100%;
+    padding: 4rem 1.5rem;
+    background-color: #EEF3FB; /* Background color */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.container-clientile {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Heading and Subheading */
+.heading-content h1 {
+    color: #2C4776; /* Blue color */
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.heading-content .subheading {
+    color: #333;
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+/* Image Section */
+.image-section-client img {
+    width: 80%; /* 80% width of the screen */
+    max-width: 1000px; /* Limit image max width */
+    height: 80vh;
+    margin-bottom: 3rem;
+    border-radius: 40px;
+}
+
+/* Stats Columns */
+.stats-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-inline: 10vw;
+}
+
+/* Each Stat Column */
+.stat-column {
+    flex: 1;
+    /* background-color: #fff; */
+    padding: 2rem;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.stat-column h3 {
+    color: #2C4776; /* Blue color */
+    font-weight: 400;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Count Style */
+.stat-column .count {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:#8FC0C3;
+    margin-top: 1rem;
+    transition: transform 1s ease, opacity 1s ease;
+    opacity: 1; /* Start with 1 opacity */
+}
+
+/* "+" sign */
+.stat-column .count:after {
+    content: "+";
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:#8FC0C3;
+    margin-left: 0.3rem; /* Space between number and "+" */
+}
+
+/* Ensure proper responsiveness */
+@media (max-width: 768px) {
+    .stats-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+    .stat-column {
+        max-width: 300px;
+        margin-bottom: 1.5rem;
+    }
+    .heading-content h1{
+        font-size: 2rem;
+    }
+}
+
+
+
+
+ /* Contact Card Section */
+ .contact-card-section {
+    background-color:  #EEF3FB; /* Beige Background */
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contact-card-container {
+    /* max-width: 900px; */
+    margin-inline: 2vw;
+    width: 100%;
+  }
+  
+  .contact-card {
+    background-color: #8FC0C3; /* White Card Background */
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+  
+  /* Icon Style */
+  .contact-card-icon {
+    font-size: 5rem; /* Larger Smartphone Icon */
+    color:#2C4776; /* Icon Color */
+    animation: vibrate 1.5s infinite ease-in-out; /* Total 3s with 1s vibration + 2s pause */
+  }
+  
+  /* Vibration Animation */
+  @keyframes vibrate {
+    0%, 100% { transform: translateX(0); } /* Start and end at neutral */
+    5% { transform: translateX(-2px); }
+    10% { transform: translateX(2px); }
+    15% { transform: translateX(-2px); }
+    20% { transform: translateX(2px); }
+    25% { transform: translateX(0); }
+    /* Rest is the pause */
+    26% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+  }
+  
+  /* Text Content */
+  .contact-card-content {
+    flex: 1;
+  }
+  
+  .contact-card-content h3 {
+    font-size: 2.5rem;
+    color:#2C4776;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-card-content p {
+    font-size: 1.5rem;
+    color: #fff;
+    line-height: 1.6;
+  }
+  
+  .contact-card-content a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Button Style */
+  .contact-card-button .btn {
+    background-color: transparent;
+    color: #2C4776;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-color: #2C4776;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-card-button .btn:hover {
+    background-color: #2C4776;
+    color: #fff;
+    border-color: #fff;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contact-card {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .contact-card-icon {
+      margin-bottom: 1rem;
+    }
+
+    .contact-card-content h3 {
+        font-size: 1.5rem;
+        color:#2C4776;
+        margin-bottom: 0.5rem;
+      }
+      
+      .contact-card-content p {
+        font-size: 1rem;
+        color: #fff;
+        line-height: 1.6;
+      }
+      
+      
+  }
+
+
+  /* Modal Container */
+  .ad-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Modal Content */
+.ad-modal-content {
+    background-color:#EEF3FB;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    text-align: center;
+    animation: modalFadeIn 0.5s ease-in-out;
+}
+
+/* Modal Close Button */
+.ad-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ad-modal-close:hover,
+.ad-modal-close:focus {
+    color: #000;
+}
+
+/* Modal Heading */
+.ad-modal-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color:#8FC0C3;
+}
+
+/* Modal Text */
+.ad-modal-content p {
+    font-size: 1rem;
+    color:#2C4776;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Modal List */
+.ad-modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.ad-modal-content li {
+    font-size: 1rem;
+    color: #2C4776;
+    margin-bottom: 0.5rem;
+}
+
+.ad-modal-content a {
+    color: #2C4776;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Animation for Modal */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .ad-modal-content {
+        width: 90%;
+    }
+}
+
+
+
+
+
+
+/* Footer Section */
+.footer-section {
+    background: #000;
+    color: #fff;
+    padding: 3rem 2rem 1rem;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 2rem;
+  }
+  
+  .footer-content {
+    max-width: 300px;
+  }
+  
+  .footer-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .footer-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #ccc;
+    line-height: 1.4;
+  }
+  
+  .footer-social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .footer-social-links a {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-social-links a:hover {
+    color: #1dbf73;
+  }
+  
+  .footer-links h4,
+  .footer-contact h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links ul li a:hover {
+    color: #1dbf73;
+  }
+  
+  .footer-contact p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+    color: #ccc;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+
+    /* Logo Container */
+    .logo-container-footer {
+        width: 100px; /* Adjust based on logo size */
+        height: 100px; /* Adjust based on logo size */
+        border-radius: 50%;
+        background-color: white; /* Circular white background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem; /* Space between logo and heading */
+        /* margin-left: auto;
+        margin-right: auto; */
+      }
+
+      .logo-center-footer {
+        width: 100px; /* Adjust the size of the logo */
+        height: 100px; /* Adjust the size of the logo */
+        object-fit: contain;
+      }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-content,
+    .footer-links,
+    .footer-contact {
+      max-width: 100%;
+    }
+  }
+  

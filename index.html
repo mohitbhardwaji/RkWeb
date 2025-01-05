@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulting Services</title>
+  <title>R K Global communciation</title>
+  <link rel="icon" href="./src/assets/rklogo.png" type="image/x-icon">
   <link rel="stylesheet" href="./src/styles/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar">
@@ -32,19 +35,31 @@
       </div>
       <i class="fas fa-times" id="close-sidebar"></i>
     </div>
-    <ul class="sidebar-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
+     <!-- Sidebar Links -->
+     <ul class="sidebar-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="#service" class="drop">Services</a>
+          <ul class="dropdown">
+              <li><a href="./src/html/it.html">IT Services</a></li>
+              <li><a href="./src/html/electrical.html">Electrical Services</a></li>
+              <li><a href="./src/html/cctv.html">CCTV Camera</a></li>
+              <li><a href="./src/html/fiber.html">Fiber Services </a></li>
+              <li><a href="./src/html/network.html">Network Services</a></li>
+              <li><a href="./src/html/project.html">Project Management</a></li>
+              <li><a href="./src/html/telecom.html">Telecom Services</a></li>
+              <li><a href="./src/html/consultancy.html">Consultancy Services</a></li>
+          </ul>
+      </li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+  </ul>
   </div>
 
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
-<!-- Consulting Section -->
-<section class="consulting-section">
+  <!-- Consulting Section -->
+  <section class="consulting-section">
     <div class="overlay-content">
       <div class="content">
         <!-- Logo inside circular container -->
@@ -53,40 +68,42 @@
         </div>
         <h1 class="ubuntu-medium">R K GLOBAL</h1>
         <p class="ubuntu-regular" style="font-size: 30;">
-            COMMUNICATION
-          </p>
+          COMMUNICATION
+        </p>
         <p class="ubuntu-regular">
           Our management consulting services focus on our clients' most critical issues and opportunities.
         </p>
-        <a href="#" class="btn ubuntu-medium">SEE ALL SERVICES</a>
+        <a href="#service" class="btn ubuntu-medium">SEE ALL SERVICES</a>
       </div>
     </div>
   </section>
-  
+
 
 
   <!-- heading section -->
-   <section class="heading-section">
-    <div class="content-info" >
-        <h1 class="ubuntu-medium">Consulting</h1>
-        <p>
-          Our management consulting services focus on our clients' most critical issues and opportunities.
-        </p>
-      </div>
-   </section>
+  <section class="heading-section">
+    <div class="content-info">
+      <h1 class="ubuntu-medium">Consulting</h1>
+      <p>
+        Our management consulting services focus on our clients' most critical issues and opportunities.
+      </p>
+    </div>
+  </section>
 
- <!-- Image Content Section -->
-<section class="image-content-section">
+  <!-- Image Content Section -->
+  <section class="image-content-section">
     <div class="image-content-grid">
       <!-- Cards Section -->
       <div class="cards-container">
         <div class="image-content-box odd">
           <h2>1.</h2>
-          <p>We blend creative and strategic thinking to solve problems, grounding everything in robust, logical, fact-based insights.</p>
+          <p>We blend creative and strategic thinking to solve problems, grounding everything in robust, logical,
+            fact-based insights.</p>
         </div>
         <div class="image-content-box">
           <h2>2.</h2>
-          <p>We believe business problems must be solved cross-functionally while taking into account the totality of the business and brand.</p>
+          <p>We believe business problems must be solved cross-functionally while taking into account the totality of
+            the business and brand.</p>
         </div>
         <div class="image-content-box ">
           <h2>3.</h2>
@@ -103,106 +120,153 @@
       </div>
     </div>
   </section>
-  
-
- <!-- Who We Are Section -->
-<section class="who-we-are-section">
-  <div class="who-we-are-grid">
-    <!-- Grid Item 1: Image -->
-    <div class="who-we-are-item image fade-in-left">
-      <img src="./src/assets/happygrey.jpg" alt="Who We Are Image 1">
-    </div>
-    <!-- Grid Item 2: Text -->
-    <div class="who-we-are-item text fade-in-right">
-      <h2>Who We Are</h2>
-      <p>
-        Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. 
-        Lobortis elementum nibh tellus molestie nunc non. Aliquet bibendum.
-      </p>
-      <a href="#" class="btn">LEARN MORE</a>
-    </div>
-    <!-- Grid Item 3: Text -->
-    <div class="who-we-are-item text fade-in-left">
-      <h2>Our Mission</h2>
-      <p>
-        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-      </p>
-      <a href="#" class="btn">EXPLORE MORE</a>
-    </div>
-    <!-- Grid Item 4: Image -->
-    <div class="who-we-are-item image fade-in-right">
-      <img src="./src/assets/clienthappy.jpg" alt="Who We Are Image 2">
-    </div>
-  </div>
-</section>
-
-  
 
 
-  <!-- Services Section -->
-<section class="services-section">
-    <div class="services-grid">
-      <!-- Service Card 1 -->
-      <div class="service-card">
-        <img src="./src/assets/service7.jpg" alt="Service 1">
-        <!-- <h3>Service Title 1</h3>
-        <p>Short description of service 1 goes here.</p> -->
+  <!-- Who We Are Section -->
+  <section class="who-we-are-section" id="about">
+    <div class="who-we-are-grid">
+      <!-- Grid Item 1: Image -->
+      <div class="who-we-are-item image fade-in-left">
+        <img src="./src/assets/happygrey.jpg" alt="Who We Are Image 1">
       </div>
-      <!-- Service Card 2 -->
-      <div class="service-card">
-        <img src="./src/assets/service5.jpg" alt="Service 2">
-        <!-- <h3>Service Title 2</h3>
-        <p>Short description of service 2 goes here.</p> -->
+      <!-- Grid Item 2: Text -->
+      <div class="who-we-are-item text fade-in-right">
+        <h2>Who We Are</h2>
+        <p>
+          At <b>RK Global Communication</b>, we are a leading provider of <b>network solutions, telecom infrastructure,
+            IT consultancy, and communication technology services</b>. With a team of skilled professionals and a
+          commitment to excellence, we deliver innovative and reliable solutions tailored to meet the unique needs of
+          our clients. Our expertise spans across cutting-edge technology, seamless connectivity, and client-centric
+          strategies, ensuring every project achieves optimal results.
+          <br>
+          <br>
+          <b>Driven by quality, powered by innovation — RK Global Communication is your trusted partner for smarter
+            communication solutions.</b>
+        </p>
+        <a href="#contact" class="btn">LEARN MORE</a>
       </div>
-      <!-- Service Card 3 -->
-      <div class="service-card">
-        <img src="./src/assets/service3.jpg" alt="Service 3">
-        <!-- <h3>Service Title 3</h3>
-        <p>Short description of service 3 goes here.</p> -->
+      <!-- Grid Item 3: Text -->
+      <div class="who-we-are-item text fade-in-left">
+        <h2>Our Mission</h2>
+        <p>
+          At <b>RK Global Communication</b>, we believe in delivering excellence by focusing on our core strengths. We
+          don’t promise what we can’t deliver, and we ensure every project aligns with our expertise and
+          capabilities.<br><br>
+
+          We specialize in <b>network solutions, telecom infrastructure, IT consultancy, project management, and
+            communication technology services </b>. Our team remains dedicated to these domains, continuously enhancing
+          their skills to meet evolving industry standards.
+
+          With a commitment to precision, innovation, and client satisfaction, we strive to build lasting partnerships
+          and deliver exceptional results.
+        </p>
+        <a href="#contact" class="btn">EXPLORE MORE</a>
       </div>
-      <!-- Service Card 4 -->
-      <div class="service-card">
-        <img src="./src/assets/cable.jpg" alt="Service 4">
-        <!-- <h3>Service Title 4</h3>
-        <p>Short description of service 4 goes here.</p> -->
-      </div>
-      <!-- Service Card 5 -->
-      <div class="service-card">
-        <img src="./src/assets/service1.jpg" alt="Service 5">
-        <!-- <h3>Service Title 5</h3>
-        <p>Short description of service 5 goes here.</p> -->
-      </div>
-      <!-- Service Card 6 -->
-      <div class="service-card">
-        <img src="./src/assets/service6.jpg" alt="Service 6">
-        <!-- <h3>Service Title 6</h3>
-        <p>Short description of service 6 goes here.</p> -->
-      </div>
-      <!-- Service Card 7 -->
-      <div class="service-card">
-        <img src="./src/assets/service2.jpg" alt="Service 7">
-        <!-- <h3>Service Title 7</h3>
-        <p>Short description of service 7 goes here.</p> -->
-      </div>
-      <!-- Service Card 8 -->
-      <div class="service-card">
-        <img src="./src/assets/service8.jpg" alt="Service 8">
-        <!-- <h3>Service Title 8</h3>
-        <p>Short description of service 8 goes here.</p> -->
+      <!-- Grid Item 4: Image -->
+      <div class="who-we-are-item image fade-in-right">
+        <img src="./src/assets/clienthappy.jpg" alt="Who We Are Image 2">
       </div>
     </div>
   </section>
-  
+
+
+
+
+  <!-- Services Section -->
+  <section class="services-section" id="service">
+    <div class="services-grid">
+      <!-- Service Card 1 -->
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./src/assets/service7.jpg" alt="Service 1">
+          <div class="service-overlay">
+            <h2>IT Services</h2>
+            <a href="./src/html/it.html" class="btn" style="margin-top: 10px;">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+      <!-- Service Card 2 -->
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./src/assets/service5.jpg" alt="Service 2">
+          <div class="service-overlay">
+            <h2>Electrical Services</h2>
+            <a href="./src/html/electrical.html" class="btn" style="margin-top: 10px;">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+      <!-- Service Card 3 -->
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./src/assets/service3.jpg" alt="Service 3">
+          <div class="service-overlay">
+            <h2> CCTV Camera</h2>
+            <a href="./src/html/cctv.html" class="btn" style="margin-top: 10px;">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+      <!-- Service Card 4 -->
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./src/assets/cable.jpg" alt="Service 4">
+          <div class="service-overlay">
+            <h2>Fiber Services</h2>
+            <a href="./src/html/fiber.html" class="btn" style="margin-top: 10px;">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+      <!-- Service Card 5 -->
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./src/assets/service1.jpg" alt="Service 5">
+          <div class="service-overlay">
+            <h2>Network Services</h2>
+            <a href="./src/html/network.html" class="btn" style="margin-top: 10px;">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+      <!-- Service Card 6 -->
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./src/assets/service6.jpg" alt="Service 6">
+          <div class="service-overlay">
+            <h2>Project Management</h2>
+            <a href="./src/html/project.html" class="btn" style="margin-top: 10px;">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+      <!-- Service Card 7 -->
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./src/assets/service2.jpg" alt="Service 7">
+          <div class="service-overlay">
+            <h2>Telecom Services</h2>
+            <a href="./src/html/telecom.html" class="btn" style="margin-top: 10px;">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+      <!-- Service Card 8 -->
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./src/assets/service8.jpg" alt="Service 8">
+          <div class="service-overlay">
+            <h2> Consultancy Services</h2>
+            <a href="./src/html/consultancy.html" class="btn" style="margin-top: 10px;">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 
   <!-- Image-Text Section -->
-<section class="image-text-section">
+  <section class="image-text-section">
     <!-- Left Side: Image -->
     <div class="image-container">
       <img src="./src/assets/rb_18016.png" alt="Descriptive Alt Text">
     </div>
-    
+
     <!-- Right Side: Text -->
     <div class="text-container">
       <h2>Our Commitment to Excellence</h2>
@@ -210,13 +274,13 @@
         We are dedicated to delivering top-notch solutions with precision and professionalism.
         Our team works tirelessly to meet and exceed client expectations at every step.
       </p>
-      <a href="#" class="btn">DISCOVER MORE</a>
+      <a href="#contact" class="btn">DISCOVER MORE</a>
     </div>
   </section>
-  
+
 
   <!-- Contact Card Section -->
-<section class="contact-card-section">
+  <section class="contact-card-section" id="contact">
     <div class="contact-card-container">
       <div class="contact-card">
         <div class="contact-card-icon">
@@ -224,14 +288,30 @@
         </div>
         <div class="contact-card-content">
           <h3>What can we help you achieve?</h3>
-          <p>Call us today <strong>+91-7000192627</strong> or email us: <a href="mailto:admin@rkglobalcomm.com">admin@rkglobalcomm.com</a></p>
+          <p>Call us today <strong>+91-7000192627</strong> or email us: <a
+              href="mailto:admin@rkglobalcomm.com">admin@rkglobalcomm.com</a></p>
         </div>
         <div class="contact-card-button">
-          <a href="#" class="btn">Book a Consultation</a>
+          <a href="#" class="btn" id="openModalBtn">Book a Consultation</a>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Modal Structure -->
+  <div class="ad-modal" id="consultationModal">
+    <div class="ad-modal-content">
+      <span class="ad-modal-close" id="closeModalBtn">&times;</span>
+      <h2>Book a Consultation</h2>
+      <p>We are here to assist you. Feel free to contact us through the following channels:</p>
+      <ul>
+        <li><strong>Phone:</strong> +91-7000192627</li>
+        <li><strong>Email:</strong> <a href="mailto:admin@rkglobalcomm.com">admin@rkglobalcomm.com</a></li>
+      </ul>
+      <p>Our team will reach out to you shortly after you contact us!</p>
+    </div>
+  </div>
+
 
   <!-- Image Section -->
   <section class="image-section">
@@ -240,23 +320,33 @@
         <img src="./src/assets/contactCenter.jpg" alt="Main Image">
       </div>
       <div class="overlay-card">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Auctor augue mauris augue neque gravida in fermentum et. Feugiat in fermentum posuere urna nec.We are here to help you achieve your goals. Let's work together!</p>
-        <a href="#" class="btn">Contact Us</a>
+        <p><b style="font-size: 25px;">Get in Touch!</b><br><br>
+          Have questions or need expert assistance with network solutions, telecom infrastructure, or IT consultancy
+          services? Our team at <b>RK Global Communication</b> is here to help!</p>
+        <p><b>Let’s build seamless connections together!</b></p>
+        <!-- <a href="#" class="btn">Contact Us</a> -->
       </div>
       <div class="overlay-card-right">
         <h3 class="ubuntu-medium">What We Do</h3>
-        <p class="ubuntu-medium" style="line-height: 2;" >We help leaders realize meaningful growth transformations so that companies can deliver substantial value today and tomorrow.</p>
+        <p class="ubuntu-regular" style="line-height: 2;">At <b>RK Global Communication</b> Company, our project
+          managers and business analysts prioritize clear communication, recognizing it as the foundation of every
+          successful project.
+
+          Beyond technical expertise, our team excels in communication and interpersonal skills, ensuring your inputs
+          are carefully considered, discussed, and addressed promptly.
+
+          With <b>RK Global</b>, you can trust in precision, transparency, and a client-first approach at every step.
+        </p>
       </div>
     </div>
   </section>
 
+  <!--
 
-  <!-- Reviews Section -->
 <section class="reviews-section">
     <h2 class="section-title">What Our Clients Say</h2>
     <div class="reviews-container">
-      <!-- Review Card 1 -->
+      
       <div class="review-card">
         <h3>Outstanding Service!</h3>
         <p>
@@ -274,7 +364,7 @@
         </div>
       </div>
   
-      <!-- Review Card 2 -->
+
       <div class="review-card">
         <h3>Highly Recommend!</h3>
         <p>
@@ -292,7 +382,6 @@
         </div>
       </div>
   
-      <!-- Review Card 3 -->
       <div class="review-card">
         <h3>Excellent Collaboration!</h3>
         <p>
@@ -311,47 +400,77 @@
       </div>
     </div>
   </section>
-  
+-->
+
+
+  <section class="clients-section">
+    <h2 class="section-title">Our Trusted Clients</h2>
+    <div class="clients-slider">
+      <div class="slider-track">
+        <div class="slide"><img src="./src/assets/Airtel.png" alt="Client 1"></div>
+        <div class="slide"><img src="./src/assets/tcts.png" alt="Client 2"></div>
+        <div class="slide"><img src="./src/assets/bsnl.png" alt="Client 3" style="width: 100px;height: 100px;"></div>
+        <div class="slide"><img src="./src/assets/jio.png" alt="Client 4"></div>
+        <div class="slide"><img src="./src/assets/nokia.png" alt="Client 5"></div>
+        <div class="slide"><img src="./src/assets/ericsson.png" alt="Client 6"></div>
+        <!-- Duplicate slides for seamless looping -->
+        <div class="slide"><img src="./src/assets/Airtel.png" alt="Client 1"></div>
+        <div class="slide"><img src="./src/assets/tcts.png" alt="Client 2"></div>
+        <div class="slide"><img src="./src/assets/bsnl.png" alt="Client 3" style="width: 100px;height: 100px;"></div>
+        <div class="slide"><img src="./src/assets/jio.png" alt="Client 4"></div>
+        <div class="slide"><img src="./src/assets/nokia.png" alt="Client 5"></div>
+        <div class="slide"><img src="./src/assets/ericsson.png" alt="Client 6"></div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer Section -->
-<footer class="footer-section">
+  <footer class="footer-section">
     <div class="footer-container">
       <div class="footer-content">
         <div class="logo-container-footer">
-            <img src="./src/assets/rklogo.png" alt="Logo" class="logo-center-footer">
-          </div>
+          <img src="./src/assets/rklogo.png" alt="Logo" class="logo-center-footer">
+        </div>
         <p>
           Delivering exceptional services with innovation and dedication. Stay connected with us for updates.
         </p>
         <div class="footer-social-links">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+          <!-- <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a> -->
+          <a href="https://www.linkedin.com/company/r-k-global-communication/"><i class="fab fa-linkedin"></i></a>
+          <!-- <a href="#"><i class="fab fa-instagram"></i></a> -->
         </div>
       </div>
       <div class="footer-links">
         <h4>Quick Links</h4>
         <ul>
           <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="./src/html/it.html">IT Services</a></li>
+          <li><a href="./src/html/electrical.html">Electrical Services</a></li>
+          <li><a href="./src/html/cctv.html">CCTV Camera</a></li>
+          <li><a href="./src/html/fiber.html">Fiber Services </a></li>
+          <li><a href="./src/html/network.html">Network Services</a></li>
+          <li><a href="./src/html/project.html">Project Management</a></li>
+          <li><a href="./src/html/telecom.html">Telecom Services</a></li>
+          <li><a href="./src/html/consultancy.html">Consultancy Services</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-contact">
         <h4>Contact Us</h4>
         <p>Email: admin@rkglobalcomm.com</p>
         <p>Phone: +91-7000192627</p>
-        <p>Address: B-23, amlatash colony gole ka mandir gwalior</p>
+        <!-- <p>Address: B-23, amlatash colony gole ka mandir gwalior</p> -->
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2024 Company Name. All Rights Reserved.</p>
     </div>
   </footer>
-  
-  
+
+
   <script src="./src/js/index.js"></script>
 </body>
+
 </html>

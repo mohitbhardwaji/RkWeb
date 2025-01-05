@@ -22,6 +22,19 @@ overlay.addEventListener('click', () => {
   overlay.classList.remove('active');
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const serviceMenu = document.querySelector(".sidebar-links li a[href='#service']");
+  const sidebarItem = serviceMenu.closest('li'); // Get the closest <li> of the "Services" link
+  const dropdown = sidebarItem.querySelector('.dropdown');
+
+  serviceMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+    sidebarItem.classList.toggle("open"); // Toggle the dropdown visibility
+  });
+});
+
+
 // Animation on Scroll - Forward and Reverse
 document.addEventListener('DOMContentLoaded', () => {
     const fadeElements = document.querySelectorAll('.fade-in-left, .fade-in-right');
@@ -104,6 +117,45 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     observer.observe(overlayCardRight);
+});
+
+
+
+
+// Optional Slider Pause on Hover
+const sliderTrack = document.querySelector('.slider-track');
+const clientsSlider = document.querySelector('.clients-slider');
+
+clientsSlider.addEventListener('mouseenter', () => {
+    sliderTrack.style.animationPlayState = 'paused';
+});
+
+clientsSlider.addEventListener('mouseleave', () => {
+    sliderTrack.style.animationPlayState = 'running';
+});
+
+
+
+// Modal Functionality
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const consultationModal = document.getElementById('consultationModal');
+
+// Open Modal
+openModalBtn.addEventListener('click', () => {
+    consultationModal.style.display = 'block';
+});
+
+// Close Modal
+closeModalBtn.addEventListener('click', () => {
+    consultationModal.style.display = 'none';
+});
+
+// Close Modal When Clicking Outside
+window.addEventListener('click', (event) => {
+    if (event.target === consultationModal) {
+        consultationModal.style.display = 'none';
+    }
 });
 
 
